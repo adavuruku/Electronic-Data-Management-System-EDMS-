@@ -1,0 +1,1 @@
+$signupdate = strftime("%b %d, %Y", strtotime($row['signupdate']));

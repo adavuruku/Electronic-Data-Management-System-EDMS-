@@ -1,0 +1,224 @@
+
+.css3droppanel input[type="checkbox"]:checked ~ div {
+height: 250px;
+opacity: 1;
+overflow: auto;
+}
+.css3droppanel { /* Main wrapper for push down panel */
+		position: relative;
+		margin: 0;
+		margin-bottom: 1em; /* margin with rest of content on page */
+		}
+
+.css3droppanel > div { /* Content DIV DIV inside wrapper */
+		height: 10px; /* initial height of content when hidden. Should be same
+ height as bottom bar (see div.css3droppanel:after) */
+		padding: 5px;
+		-moz-box-sizing: border-box; /* ensure any padding and border declared inside content DIV doesn't increase DIV's declared dimensions */
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		overflow: hidden;
+		background: #b5e5e0; /* background of content DIV */
+		position: relative;
+		opacity: 0;
+    -moz-transition: all 0.2s ease-in-out 0.1s;  /* CSS3 transition of UL state. Last 0.1s specifies delay before animation */
+    -o-transition: all 0.2s ease-in-out 0.1s; /* instead of ease-in-out, also try cubic-bezier(0.25, 0.1, 0.25, 1.4) instead */
+    -webkit-transition: all 0.2s ease-in-out 0.1s;
+    transition: all 0.2s ease-in-out 0.1s;
+		}
+
+.css3droppanel:after { /* Add bottom bar beneath wrapper */
+		content: '';
+		display: block;
+		bottom: 0;
+		position: absolute;
+		width: 100%;
+		height: 10px;
+		box-shadow: 0 3px 8px gray, 3px 3px 4px brown inset;
+		background: #5a1619; /* dark redish background and its gradient versions */
+		background: -moz-linear-gradient(top,  rgba(118,36,41,1) 0%,rgba(117,5,11,1) 50%, rgba(56,38,39,0.72) 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(118,36,41,1)), color-stop(50%,rgba(117,5,11,1)), color-stop(100%,rgba(56,38,39,0.72)));
+		background: -webkit-linear-gradient(top,  rgba(118,36,41,1) 0%,rgba(117,5,11,1) 50%,rgba(56,38,39,0.72) 100%);
+		background: -o-linear-gradient(top,  rgba(118,36,41,1) 0%,rgba(117,5,11,1) 50%,rgba(56,38,39,0.72) 100%);
+		background: -ms-linear-gradient(top,  rgba(118,36,41,1) 0%,rgba(117,5,11,1) 50%,rgba(56,38,39,0.72) 100%);
+		background: linear-gradient(to bottom,  rgba(118,36,41,1) 0%,rgba(117,5,11,1) 50%,rgba(56,38,39,0.72) 100%);
+		}
+
+
+.css3droppanel input[type="checkbox"] { /* style invisible checkbox element used to toggle state of push down panel */
+		position: absolute;
+		right: 50px; /* right position of checkbox */
+		width: 60px; /* width of checkbox */
+		height: 42px; /* height of checkbox */
+		bottom: -34px; /* bottom offset of checkbox */
+		z-index: 10;
+		cursor: pointer;
+		opacity: 0;
+		}
+
+.css3droppanel input[type="checkbox"]:checked ~ div { /* when 
+checkbox is checked, expand content within wrapper */
+		height: 200px; /* height of content to expand to. Scrollbar will be shown if content overflows this height */
+		opacity: 1;
+		overflow: auto;
+		}
+
+.css3droppanel label { /* style label that's positioned below wrapper's bottom bar, and will toggle checkbox when interacted with */ 
+		position: absolute;
+		right: 50px; /* right position of label */
+		width: 60px; /* width of label */
+		height: 42px; /* height of label */
+		bottom: -34px; /* bottom offset of label */
+		border-bottom-left-radius: 30px;
+		border-bottom-right-radius: 30px;
+		cursor: pointer;
+		z-index: 5;
+		background: #5a1619; /* dark redish background and its gradient versions */
+		background: -moz-linear-gradient(top,  rgba(118,36,41,1) 0%, rgba(117,5,11,1) 50%, rgba(124,31,32,0.72) 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(118,36,41,1)), color-stop(50%,rgba(117,5,11,1)), color-stop(100%,rgba(124,31,32,0.72)));
+		background: -webkit-linear-gradient(top,  rgba(118,36,41,1) 0%,rgba(117,5,11,1) 50%,rgba(124,31,32,0.72) 100%);
+		background: -o-linear-gradient(top,  rgba(118,36,41,1) 0%,rgba(117,5,11,1) 50%,rgba(124,31,32,0.72) 100%);
+		background: -ms-linear-gradient(top,  rgba(118,36,41,1) 0%,rgba(117,5,11,1) 50%,rgba(124,31,32,0.72) 100%);
+		background: linear-gradient(to bottom,  rgba(118,36,41,1) 0%,rgba(117,5,11,1) 50%,rgba(124,31,32,0.72) 100%);
+		box-shadow: 0 3px 8px black, 5px 5px 6px brown inset, 0 -3px 3px rgba(152,41,47,0.7) inset, 0 5px 0 rgba(255,255,255,0.7) inset;
+		}
+
+.css3droppanel label:hover { /* style of label when mouse rolls over it */
+		box-shadow: 0 3px 8px black, 5px 5px 6px brown inset, 0 -3px 3px rgba(152,41,47,0.7) inset, 0 5px 0 rgba(255,255,255,0.7) inset, 0 0 15pxrgba(255,255,255,0.8) inset;
+		}
+
+.css3droppanel label:after { /* generated down arrow */
+		content: '';
+		position: absolute;
+		display: block;
+		width: 0;
+		height: 0;
+		border: 12px solid transparent;
+		border-color: white transparent transparent transparent;
+		top: 18px;
+		left: 18px;
+		box-shadow: 0 0 7px gray inset;
+		}
+.filetop{
+text-align:center;
+font-size:12px;
+font-weight:bold;
+font-style:italic;
+margin:0px;
+padding:0px;
+}
+.tcol{
+align:right;
+font-family:comic sans ms;
+font-size:14px;
+font-weight:bold;
+color:yellow;
+background-color:brown
+}
+.tcol2{
+align:left;
+font-family:comic sans ms;
+font-size:14px;
+font-weight:bold;
+color:white;
+background-color:grey}
+.buttoney{
+font-family:comic sans ms;
+font-size:14px;
+font-weight:bold;
+}
+
+
+.holdimg{
+//width:150px;
+
+}
+.formcont{
+padding:20px;
+padding-top:5px;
+font-weight:bold;
+}
+.labelss{
+font-size:15px;
+padding-top:0px;
+
+font-weight:bold;
+
+}
+.control-label{
+font-weight:bold;
+font-size:15px;
+padding:0px;
+}
+input-group{
+margin:5px;
+}
+.CONT2{
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-top:2%;
+	margin-left:15%;
+	margin-right:15%;
+	margin-bottom:2%;
+	box-shadow: 5px 5px 5px gray;
+	background: linear-gradient(#2E8B57 15%, #5F9EA0   100%);
+	background: -moz-linear-gradient(#2E8B57 15%, #5F9EA0   100%); /* FF3.6+ */
+	background: -webkit-linear-gradient(#2E8B57 15%, #5F9EA0  100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(#2E8B57 15%, #5F9EA0   100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(#2E8B57 15%, #5F9EA0  100%); /* IE10+ */
+}
+.CONT2ins1{
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-bottom:10px;
+	box-shadow: 5px 5px 5px gray;
+	background: linear-gradient(#5F9EA0 25%, #008B8B   100%);
+	background: -moz-linear-gradient(#5F9EA0 25%, #008B8B   100%); /* FF3.6+ */
+	background: -webkit-linear-gradient(#5F9EA0 25%, #008B8B  100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(#5F9EA0 25%, #008B8B   100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(#5F9EA0 25%, #008B8B  100%); /* IE10+ */
+}
+.imgcont1{
+	padding-top:15px;
+	padding-bottom:15px;
+	margin-bottom:10px;
+	box-shadow: 5px 5px 5px gray;
+	background: linear-gradient(#5F9EA0 25%, #077000   10%);
+	background: -moz-linear-gradient(#5F9EA0 25%, #077000   100%); /* FF3.6+ */
+	background: -webkit-linear-gradient(#5F9EA0 25%, #008B8B  100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(#5F9EA0 25%, #008B8B   100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(#5F9EA0 25%, #008B8B  100%); /* IE10+ */
+}
+.navbar-brand,.active{
+style="box-shadow: 0 0 10px green inset;
+font-weight:bold;
+color:yellow;
+font-family: comic sans ms;
+}
+.thedetails
+{
+	color:yellow;
+	font-weight:bold;
+	font-family: comic sans ms;
+	text-align:center;
+	font-size:14px;
+}
+.thedetails img:hover{
+-webkit-transform:scale(1.1); /*Webkit: Scale up image to 1.2x original size*/
+-moz-transform:scale(1.1); /*Mozilla scale version*/
+-o-transform:scale(1.1); /*Opera scale version*/
+box-shadow:0px 0px 30px gray; /*CSS3 shadow: 30px blurred shadow all around image*/
+-webkit-box-shadow:0px 0px 30px gray; /*Safari shadow version*/
+-moz-box-shadow:0px 0px 30px gray; /*Mozilla shadow version*/
+opacity: 1;
+}
+.thedetails img{
+-webkit-transform:scale(0.1); /*Webkit: Scale down image to 0.8x original size*/
+-moz-transform:scale(0.8); /*Mozilla scale version*/
+-o-transform:scale(0.8); /*Opera scale version*/
+-webkit-transition-duration: 0.5s; /*Webkit: Animation duration*/
+-moz-transition-duration: 0.5s; /*Mozilla duration version*/
+-o-transition-duration: 0.5s; /*Opera duration version*/
+opacity: 0.7; /*initial opacity of images*/
+margin: 0 10px 5px 0; /*margin between images*/
+}
